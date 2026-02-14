@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: cantarellabots-thumbnail-bot
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: DB_URI
+        sync: false
+      - key: LOG_CHANNEL
+        sync: false
+        
