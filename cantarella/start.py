@@ -29,7 +29,7 @@ FREE_LIMIT_DAILY = 10
 UPI_ID = os.environ.get("UPI_ID", "your_upi@oksbi")
 QR_CODE = os.environ.get("QR_CODE", "https://graph.org/file/242b7f1b52743938d81f1.jpg")
 
-# ==================== 🔥 ULTRA PREMIUM IMAGES ====================
+# ==================== 🔥 PREMIUM IMAGES ====================
 START_IMAGES = [
     "https://i.postimg.cc/Hx1qXv0f/0f22a4ab4d44a829a33797eb7d8fbdc6.jpg",
     "https://i.postimg.cc/j5YpP3Qb/22df44ff326cbce5d99344d904e993af.jpg",
@@ -55,9 +55,8 @@ REACTIONS = [
     "😡"
 ]
 
-# ==================== 🔥 ULTRA COOL FONTS ====================
+# ==================== 🔥 FONTS ====================
 def small_caps(text: str) -> str:
-    """Convert to small caps - Premium Font Style 1"""
     normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     small = "ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ"
     result = ""
@@ -70,7 +69,6 @@ def small_caps(text: str) -> str:
     return result
 
 def bold_style(text: str) -> str:
-    """Convert to bold unicode - Premium Font Style 2"""
     normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     bold = "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵"
     result = ""
@@ -83,7 +81,6 @@ def bold_style(text: str) -> str:
     return result
 
 def italic_style(text: str) -> str:
-    """Convert to italic unicode - Premium Font Style 3"""
     normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     italic = "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡"
     result = ""
@@ -96,7 +93,6 @@ def italic_style(text: str) -> str:
     return result
 
 def double_struck(text: str) -> str:
-    """Convert to double struck - Premium Font Style 4"""
     normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     double = "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"
     result = ""
@@ -109,13 +105,11 @@ def double_struck(text: str) -> str:
     return result
 
 def get_random_premium_image() -> str:
-    """Return random premium image"""
     return random.choice(START_IMAGES)
 
-# ==================== 🔥 ULTRA COOL TEXT CLASS ====================
+# ==================== 🔥 TEXT CLASS ====================
 class script(object):
    
-    # 🔥 START MENU - ULTRA COOL
     START_TXT = """
 <b>{}</b>
 
@@ -132,18 +126,8 @@ class script(object):
 </blockquote>
 
 <b>🔥 {} 🔥</b>
-""".format(
-    double_struck("𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗥𝗘𝗦𝗧𝗥𝗜𝗖𝗧𝗘𝗗 𝗦𝗔𝗩𝗘𝗥"),
-    small_caps("Hello {}, I'm").format("{}") + " <a href=https://t.me/{}>{}</a>".format("{}", "{}"),
-    italic_style("Your Ultimate Restricted Content Saver Bot"),
-    small_caps("System Status: 🟢 Online"),
-    small_caps("Performance: 10x High-Speed"),
-    small_caps("Security: End-to-End"),
-    small_caps("Uptime: 99.9% Guaranteed"),
-    small_caps("Select Option Below to Get Started")
-)
+"""
 
-    # 🔥 HELP MENU - ULTRA COOL
     HELP_TXT = """
 <b>{}</b>
 
@@ -172,32 +156,8 @@ class script(object):
 <blockquote><b>💎 {} 💎</b>
 • {}
 • {}</blockquote>
-""".format(
-    double_struck("𝗛𝗘𝗟𝗣 𝗗𝗘𝗦𝗞"),
-    small_caps("Comprehensive User Guide"),
-    small_caps("Public Channels"),
-    small_caps("Forward or send post link directly"),
-    small_caps("Compatible with any public channel/group"),
-    small_caps("Example Link:"),
-    small_caps("Private Channels"),
-    small_caps("Use"),
-    small_caps("to securely connect"),
-    small_caps("Send private link (e.g.,"),
-    small_caps("Bot accesses using your session"),
-    small_caps("Batch Mode"),
-    small_caps("Initiate with"),
-    small_caps("for multiple files"),
-    small_caps("Free Limits"),
-    small_caps("Daily Quota:"),
-    small_caps("Files"),
-    small_caps("File Size:"),
-    small_caps("Max"),
-    small_caps("Premium Benefits"),
-    small_caps("Unlimited Downloads • No Restrictions"),
-    small_caps("Priority Support • Advanced Features")
-)
+"""
 
-    # 🔥 ABOUT MENU - ULTRA COOL
     ABOUT_TXT = """
 <b>{}</b>
 
@@ -213,18 +173,8 @@ class script(object):
 </blockquote>
 
 <b>⚡ {} ⚡</b>
-""".format(
-    double_struck("𝗔𝗕𝗢𝗨𝗧 𝗦𝗬𝗦𝗧𝗘𝗠"),
-    small_caps("Bot Name:") + " <a href=http://t.me/THEUPDATEDGUYS_Bot>Save Content Pro</a>",
-    small_caps("Developer:") + " <a href=https://t.me/DmOwner>Ⓜ️ark X cantarella × Flexyy</a>",
-    small_caps("Library:") + " <a href='https://docs.pyrogram.org/'>Pyrogram Async</a>",
-    small_caps("Language:") + " <a href='https://www.python.org/'>Python 3.11+</a>",
-    small_caps("Database:") + " <a href='https://www.mongodb.com/'>MongoDB Atlas</a>",
-    small_caps("Hosting:") + " Dedicated High-Speed VPS",
-    small_caps("Powered by DragonByte Network")
-)
+"""
 
-    # 🔥 PREMIUM MENU - ULTRA COOL
     PREMIUM_TEXT = """
 <b>{}</b>
 <b>{}</b>
@@ -253,63 +203,26 @@ class script(object):
 <b>QR Code:</b> <a href='{}'>📸 {}</a>
 
 <i>{}</i>
-""".format(
-    double_struck("𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗠𝗘𝗠𝗕𝗘𝗥𝗦𝗛𝗜𝗣"),
-    bold_style("Unlock Unlimited Power! ⚡"),
-    small_caps("Key Benefits"),
-    small_caps("Unlimited Daily Downloads"),
-    small_caps("Support for"),
-    small_caps("File Sizes"),
-    small_caps("Instant Processing"),
-    small_caps("(Zero Delay)"),
-    small_caps("Customizable Thumbnails"),
-    small_caps("Personalized Captions"),
-    small_caps("Priority Support"),
-    small_caps("Pricing Options"),
-    small_caps("Month Plan"),
-    small_caps("Month Plan"),
-    small_caps("Lifetime Access"),
-    small_caps("Secure Payment"),
-    "{}",  # UPI_ID placeholder
-    "{}",  # QR_CODE placeholder
-    small_caps("Scan to Pay"),
-    italic_style("After Payment: Send Screenshot to @DmOwner for Instant Activation!")
-)
+"""
 
-    # 🔥 PROGRESS BAR - FIXED VERSION
+    # 🔥 FIXED PROGRESS BAR - SIMPLE VERSION
     PROGRESS_BAR = """
 <b>{}</b>
-<blockquote>
-┌─────────────────────┐
-│ <b>📊 {}:</b> {percentage:.1f}%  │
-│ <b>🚀 {}:</b> <code>{speed}/s</code>       │
-│ <b>💾 {}:</b> <code>{current} of {total}</code>  │
-│ <b>⏱ {}:</b> <code>{elapsed}</code>      │
-│ <b>⏳ {}:</b> <code>{eta}</code>         │
-└─────────────────────┘
-</blockquote>
-""".format(
-    bold_style("⚡ PROCESSING TASK... ⚡"),
-    small_caps("Progress"),
-    small_caps("Speed"),
-    small_caps("Size"),
-    small_caps("Elapsed"),
-    small_caps("ETA")
-)
 
-    # 🔥 CAPTION - ULTRA COOL
+<b>📊 Progress:</b> {percentage:.1f}%
+<b>🚀 Speed:</b> <code>{speed}/s</code>
+<b>💾 Size:</b> <code>{current} of {total}</code>
+<b>⏱ Elapsed:</b> <code>{elapsed}</code>
+<b>⏳ ETA:</b> <code>{eta}</code>
+"""
+
     CAPTION = """
 <b><a href="https://t.me/THEUPDATEDGUYS">{}</a></b>
 
 <b>⚜️ {} ⚜️</b>
 <b><a href="https://t.me/THEUPDATEDGUYS">{}</a></b>
-""".format(
-    double_struck("ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛʜᴇ ᴜᴘᴅᴀᴛᴇᴅ ɢᴜʏs"),
-    small_caps("Powered By"),
-    bold_style("THE UPDATED GUYS 😎")
-)
+"""
 
-    # 🔥 ERROR MESSAGES - ULTRA COOL
     LIMIT_REACHED = """
 <b>{}</b>
 
@@ -320,13 +233,7 @@ class script(object):
 
 <blockquote><b>🔓 {}!</b></blockquote>
 <i>{}</i>
-""".format(
-    double_struck("𝗗𝗔𝗜𝗟𝗬 𝗟𝗜𝗠𝗜𝗧 𝗘𝗫𝗖𝗘𝗘𝗗𝗘𝗗"),
-    small_caps("Your 10 free saves for today are used"),
-    small_caps("Quota resets after 24 hours"),
-    small_caps("Upgrade to Premium for Unlimited"),
-    small_caps("Remove restrictions & enjoy seamless downloading")
-)
+"""
 
     SIZE_LIMIT = """
 <b>{}</b>
@@ -337,14 +244,7 @@ class script(object):
 
 <blockquote><b>🔓 {}</b></blockquote>
 <i>{} 4GB+ {}!</i>
-""".format(
-    double_struck("𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 𝗘𝗫𝗖𝗘𝗘𝗗𝗘𝗗"),
-    small_caps("Free tier limited to"),
-    small_caps("per file"),
-    small_caps("Upgrade to Premium"),
-    small_caps("Download files up to"),
-    small_caps("with no limits")
-)
+"""
 
     LOGIN_REQUIRED = """
 <b>{}</b>
@@ -354,17 +254,12 @@ class script(object):
 │ 📌 <i>{}</i> │
 │ 🔑 <i>{} /login</i>    │
 └─────────────────────┘
-""".format(
-    double_struck("𝗔𝗨𝗧𝗛𝗘𝗡𝗧𝗜𝗖𝗔𝗧𝗜𝗢𝗡 𝗥𝗘𝗤𝗨𝗜𝗥𝗘𝗗"),
-    small_caps("Access requires login"),
-    small_caps("This is a private channel"),
-    small_caps("Use")
-)
+"""
 
     CANCELLED = """
 <b>{}</b>
 └────── <b>❌</b> ──────┘
-""".format(double_struck("𝗧𝗔𝗦𝗞 𝗖𝗔𝗡𝗖𝗘𝗟𝗟𝗘𝗗"))
+"""
     
     PROCESSING = """
 <b>{}</b>
@@ -372,11 +267,7 @@ class script(object):
 │ <i>{}</i> │
 │ <i>{}</i> │
 └─────────────────────┘
-""".format(
-    double_struck("𝗣𝗥𝗢𝗖𝗘𝗦𝗦𝗜𝗡𝗚"),
-    small_caps("A task is currently processing"),
-    small_caps("Please wait or use /cancel to stop")
-)
+"""
 
 def humanbytes(size):
     if not size:
@@ -457,15 +348,14 @@ def progress(current, total, message, type):
             eta = (total - current) / speed if speed > 0 else 0
             elapsed = now - progress.start_time[task_id]
            
-            # FIXED: Removed {bar} from format string
-            status = script.PROGRESS_BAR.format(
-                percentage=percentage,
-                current=humanbytes(current),
-                total=humanbytes(total),
-                speed=humanbytes(speed),
-                elapsed=TimeFormatter(elapsed * 1000),
-                eta=TimeFormatter(eta * 1000)
-            )
+            # FIXED: Simple progress bar without complex formatting
+            status = f"""<b>⚡ PROCESSING TASK... ⚡</b>
+
+<b>📊 Progress:</b> {percentage:.1f}%
+<b>🚀 Speed:</b> <code>{humanbytes(speed)}/s</code>
+<b>💾 Size:</b> <code>{humanbytes(current)} of {humanbytes(total)}</code>
+<b>⏱ Elapsed:</b> <code>{TimeFormatter(elapsed * 1000)}</code>
+<b>⏳ ETA:</b> <code>{TimeFormatter(eta * 1000)}</code>"""
            
             with open(f'{message.id}{type}status.txt', "w", encoding='utf-8') as fileup:
                 fileup.write(status)
@@ -510,9 +400,14 @@ async def send_start(client: Client, message: Message):
     bot = await client.get_me()
    
     start_text = script.START_TXT.format(
-        message.from_user.mention,
-        bot.username,
-        bot.first_name
+        double_struck("𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗥𝗘𝗦𝗧𝗥𝗜𝗖𝗧𝗘𝗗 𝗦𝗔𝗩𝗘𝗥"),
+        small_caps(f"Hello {message.from_user.mention}, I'm").replace(message.from_user.mention, "{}") + f" <a href=https://t.me/{bot.username}>{bot.first_name}</a>",
+        italic_style("Your Ultimate Restricted Content Saver Bot"),
+        small_caps("System Status: 🟢 Online"),
+        small_caps("Performance: 10x High-Speed"),
+        small_caps("Security: End-to-End"),
+        small_caps("Uptime: 99.9% Guaranteed"),
+        small_caps("Select Option Below to Get Started")
     )
    
     await client.send_photo(
@@ -527,9 +422,35 @@ async def send_start(client: Client, message: Message):
 @Client.on_message(filters.command(["help"]))
 async def send_help(client: Client, message: Message):
     buttons = [[InlineKeyboardButton("❌ 𝘾𝙡𝙤𝙨𝙚", callback_data="close_btn")]]
+    
+    help_text = script.HELP_TXT.format(
+        double_struck("𝗛𝗘𝗟𝗣 𝗗𝗘𝗦𝗞"),
+        small_caps("Comprehensive User Guide"),
+        small_caps("Public Channels"),
+        small_caps("Forward or send post link directly"),
+        small_caps("Compatible with any public channel/group"),
+        small_caps("Example Link:"),
+        small_caps("Private Channels"),
+        small_caps("Use"),
+        small_caps("to securely connect"),
+        small_caps("Send private link (e.g.,"),
+        small_caps("Bot accesses using your session"),
+        small_caps("Batch Mode"),
+        small_caps("Initiate with"),
+        small_caps("for multiple files"),
+        small_caps("Free Limits"),
+        small_caps("Daily Quota:"),
+        small_caps("Files"),
+        small_caps("File Size:"),
+        small_caps("Max"),
+        small_caps("Premium Benefits"),
+        small_caps("Unlimited Downloads • No Restrictions"),
+        small_caps("Priority Support • Advanced Features")
+    )
+    
     await client.send_message(
         chat_id=message.chat.id,
-        text=script.HELP_TXT,
+        text=help_text,
         reply_markup=InlineKeyboardMarkup(buttons),
         parse_mode=enums.ParseMode.HTML
     )
@@ -541,7 +462,28 @@ async def send_plan(client: Client, message: Message):
         [InlineKeyboardButton("❌ 𝘾𝙡𝙤𝙨𝙚", callback_data="close_btn")]
     ]
    
-    premium_text = script.PREMIUM_TEXT.format(UPI_ID, QR_CODE)
+    premium_text = script.PREMIUM_TEXT.format(
+        double_struck("𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗠𝗘𝗠𝗕𝗘𝗥𝗦𝗛𝗜𝗣"),
+        bold_style("Unlock Unlimited Power! ⚡"),
+        small_caps("Key Benefits"),
+        small_caps("Unlimited Daily Downloads"),
+        small_caps("Support for"),
+        small_caps("File Sizes"),
+        small_caps("Instant Processing"),
+        small_caps("(Zero Delay)"),
+        small_caps("Customizable Thumbnails"),
+        small_caps("Personalized Captions"),
+        small_caps("Priority Support"),
+        small_caps("Pricing Options"),
+        small_caps("Month Plan"),
+        small_caps("Month Plan"),
+        small_caps("Lifetime Access"),
+        small_caps("Secure Payment"),
+        UPI_ID,
+        QR_CODE,
+        small_caps("Scan to Pay"),
+        italic_style("After Payment: Send Screenshot to @DmOwner for Instant Activation!")
+    )
    
     await client.send_photo(
         chat_id=message.chat.id,
@@ -554,10 +496,10 @@ async def send_plan(client: Client, message: Message):
 @Client.on_message(filters.command(["cancel"]))
 async def send_cancel(client: Client, message: Message):
     batch_temp.IS_BATCH[message.from_user.id] = True
-    await message.reply_text(script.CANCELLED, parse_mode=enums.ParseMode.HTML)
+    cancel_text = script.CANCELLED.format(double_struck("𝗧𝗔𝗦𝗞 𝗖𝗔𝗡𝗖𝗘𝗟𝗟𝗘𝗗"))
+    await message.reply_text(cancel_text, parse_mode=enums.ParseMode.HTML)
 
 async def settings_panel(client, callback_query):
-    """Settings Menu - Ultra Cool"""
     user_id = callback_query.from_user.id
     is_premium = await db.check_premium(user_id)
     badge = "💎 𝙋𝙧𝙚𝙢𝙞𝙪𝙢" if is_premium else "👤 𝙎𝙩𝙖𝙣𝙙𝙖𝙧𝙙"
@@ -595,15 +537,27 @@ async def save(client: Client, message: Message):
         is_limit_reached = await db.check_limit(message.from_user.id)
         if is_limit_reached:
             btn = InlineKeyboardMarkup([[InlineKeyboardButton("💎 𝙐𝙥𝙜𝙧𝙖𝙙𝙚 𝙋𝙧𝙚𝙢𝙞𝙪𝙢", callback_data="buy_premium")]])
+            limit_text = script.LIMIT_REACHED.format(
+                double_struck("𝗗𝗔𝗜𝗟𝗬 𝗟𝗜𝗠𝗜𝗧 𝗘𝗫𝗖𝗘𝗘𝗗𝗘𝗗"),
+                small_caps("Your 10 free saves for today are used"),
+                small_caps("Quota resets after 24 hours"),
+                small_caps("Upgrade to Premium for Unlimited"),
+                small_caps("Remove restrictions & enjoy seamless downloading")
+            )
             return await message.reply_photo(
                 photo=SUBSCRIPTION,
-                caption=script.LIMIT_REACHED,
+                caption=limit_text,
                 reply_markup=btn,
                 parse_mode=enums.ParseMode.HTML
             )
        
         if batch_temp.IS_BATCH.get(message.from_user.id) == False:
-            return await message.reply_text(script.PROCESSING, parse_mode=enums.ParseMode.HTML)
+            process_text = script.PROCESSING.format(
+                double_struck("𝗣𝗥𝗢𝗖𝗘𝗦𝗦𝗜𝗡𝗚"),
+                small_caps("A task is currently processing"),
+                small_caps("Please wait or use /cancel to stop")
+            )
+            return await message.reply_text(process_text, parse_mode=enums.ParseMode.HTML)
        
         datas = message.text.split("/")
         temp = datas[-1].replace("?single", "").split("-")
@@ -640,44 +594,50 @@ async def save(client: Client, message: Message):
            
             user_data = await db.get_session(message.from_user.id)
             if user_data is None:
+                login_text = script.LOGIN_REQUIRED.format(
+                    double_struck("𝗔𝗨𝗧𝗛𝗘𝗡𝗧𝗜𝗖𝗔𝗧𝗜𝗢𝗡 𝗥𝗘𝗤𝗨𝗜𝗥𝗘𝗗"),
+                    small_caps("Access requires login"),
+                    small_caps("This is a private channel"),
+                    small_caps("Use")
+                )
                 await message.reply(
-                    script.LOGIN_REQUIRED,
+                    login_text,
                     parse_mode=enums.ParseMode.HTML
                 )
                 batch_temp.IS_BATCH[message.from_user.id] = True
                 return
            
-            # FIXED: Added unique session name to avoid "Client is already connected" error
-            session_name = f"session_{message.from_user.id}_{int(time.time())}"
+            # FIXED: Use unique session name and ensure disconnection
+            session_name = f"session_{message.from_user.id}_{msgid}_{int(time.time())}"
+            acc = None
             try:
                 acc = Client(
                     session_name,
                     session_string=user_data,
                     api_hash=API_HASH,
                     api_id=API_ID,
-                    in_memory=True,
-                    max_concurrent_transmissions=10
+                    in_memory=True
                 )
                 await acc.connect()
+                
+                if is_private_link:
+                    chatid = int("-100" + datas[4])
+                    await handle_restricted_content(client, acc, message, chatid, msgid)
+                elif is_batch:
+                    username = datas[4]
+                    await handle_restricted_content(client, acc, message, username, msgid)
+                else:
+                    username = datas[3]
+                    await handle_restricted_content(client, acc, message, username, msgid)
+               
             except Exception as e:
-                batch_temp.IS_BATCH[message.from_user.id] = True
-                return await message.reply(f"<b>❌ Authentication Failed</b>\n\n<i>Your session may have expired. Please /logout and /login again.</i>\n<code>{e}</code>", parse_mode=enums.ParseMode.HTML)
-           
-            if is_private_link:
-                chatid = int("-100" + datas[4])
-                await handle_restricted_content(client, acc, message, chatid, msgid)
-            elif is_batch:
-                username = datas[4]
-                await handle_restricted_content(client, acc, message, username, msgid)
-            else:
-                username = datas[3]
-                await handle_restricted_content(client, acc, message, username, msgid)
-           
-            # FIXED: Disconnect after use
-            try:
-                await acc.disconnect()
-            except:
-                pass
+                logger.error(f"Session error: {e}")
+            finally:
+                if acc:
+                    try:
+                        await acc.disconnect()
+                    except:
+                        pass
            
             await asyncio.sleep(2)
        
@@ -705,9 +665,17 @@ async def handle_restricted_content(client: Client, acc, message: Message, chat_
     if file_size > FREE_LIMIT_SIZE:
         if not await db.check_premium(message.from_user.id):
             btn = InlineKeyboardMarkup([[InlineKeyboardButton("💎 𝙐𝙥𝙜𝙧𝙖𝙙𝙚 𝙋𝙧𝙚𝙢𝙞𝙪𝙢", callback_data="buy_premium")]])
+            size_text = script.SIZE_LIMIT.format(
+                double_struck("𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 𝗘𝗫𝗖𝗘𝗘𝗗𝗘𝗗"),
+                small_caps("Free tier limited to"),
+                small_caps("per file"),
+                small_caps("Upgrade to Premium"),
+                small_caps("Download files up to"),
+                small_caps("with no limits")
+            )
             await client.send_message(
                 message.chat.id,
-                script.SIZE_LIMIT,
+                size_text,
                 reply_markup=btn,
                 parse_mode=enums.ParseMode.HTML
             )
@@ -741,7 +709,8 @@ async def handle_restricted_content(client: Client, acc, message: Message, chat_
     except Exception as e:
         if batch_temp.IS_BATCH.get(message.from_user.id) or "Cancelled" in str(e):
             if os.path.exists(temp_dir): shutil.rmtree(temp_dir)
-            return await smsg.edit(script.CANCELLED)
+            cancel_text = script.CANCELLED.format(double_struck("𝗧𝗔𝗦𝗞 𝗖𝗔𝗡𝗖𝗘𝗟𝗟𝗘𝗗"))
+            return await smsg.edit(cancel_text)
         return await smsg.delete()
    
     try:
@@ -769,7 +738,12 @@ async def handle_restricted_content(client: Client, acc, message: Message, chat_
         if custom_caption:
             final_caption = custom_caption.format(filename=file.split("/")[-1], size=humanbytes(file_size))
         else:
-            final_caption = script.CAPTION
+            caption_text = script.CAPTION.format(
+                double_struck("ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛʜᴇ ᴜᴘᴅᴀᴛᴇᴅ ɢᴜʏs"),
+                small_caps("Powered By"),
+                bold_style("THE UPDATED GUYS 😎")
+            )
+            final_caption = caption_text
             if msg.caption:
                 final_caption += f"\n\n{msg.caption}"
        
@@ -832,7 +806,28 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
             [InlineKeyboardButton("⬅️ 𝘽𝙖𝙘𝙠 𝙃𝙤𝙢𝙚", callback_data="start_btn")]
         ]
        
-        premium_text = script.PREMIUM_TEXT.format(UPI_ID, QR_CODE)
+        premium_text = script.PREMIUM_TEXT.format(
+            double_struck("𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗠𝗘𝗠𝗕𝗘𝗥𝗦𝗛𝗜𝗣"),
+            bold_style("Unlock Unlimited Power! ⚡"),
+            small_caps("Key Benefits"),
+            small_caps("Unlimited Daily Downloads"),
+            small_caps("Support for"),
+            small_caps("File Sizes"),
+            small_caps("Instant Processing"),
+            small_caps("(Zero Delay)"),
+            small_caps("Customizable Thumbnails"),
+            small_caps("Personalized Captions"),
+            small_caps("Priority Support"),
+            small_caps("Pricing Options"),
+            small_caps("Month Plan"),
+            small_caps("Month Plan"),
+            small_caps("Lifetime Access"),
+            small_caps("Secure Payment"),
+            UPI_ID,
+            QR_CODE,
+            small_caps("Scan to Pay"),
+            italic_style("After Payment: Send Screenshot to @DmOwner for Instant Activation!")
+        )
        
         await client.edit_message_media(
             chat_id=message.chat.id,
@@ -846,20 +841,54 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
    
     elif data == "help_btn":
         buttons = [[InlineKeyboardButton("⬅️ 𝘽𝙖𝙘𝙠 𝙃𝙤𝙢𝙚", callback_data="start_btn")]]
+        help_text = script.HELP_TXT.format(
+            double_struck("𝗛𝗘𝗟𝗣 𝗗𝗘𝗦𝗞"),
+            small_caps("Comprehensive User Guide"),
+            small_caps("Public Channels"),
+            small_caps("Forward or send post link directly"),
+            small_caps("Compatible with any public channel/group"),
+            small_caps("Example Link:"),
+            small_caps("Private Channels"),
+            small_caps("Use"),
+            small_caps("to securely connect"),
+            small_caps("Send private link (e.g.,"),
+            small_caps("Bot accesses using your session"),
+            small_caps("Batch Mode"),
+            small_caps("Initiate with"),
+            small_caps("for multiple files"),
+            small_caps("Free Limits"),
+            small_caps("Daily Quota:"),
+            small_caps("Files"),
+            small_caps("File Size:"),
+            small_caps("Max"),
+            small_caps("Premium Benefits"),
+            small_caps("Unlimited Downloads • No Restrictions"),
+            small_caps("Priority Support • Advanced Features")
+        )
         await client.edit_message_caption(
             chat_id=message.chat.id,
             message_id=message.id,
-            caption=script.HELP_TXT,
+            caption=help_text,
             reply_markup=InlineKeyboardMarkup(buttons),
             parse_mode=enums.ParseMode.HTML
         )
    
     elif data == "about_btn":
         buttons = [[InlineKeyboardButton("⬅️ 𝘽𝙖𝙘𝙠 𝙃𝙤𝙢𝙚", callback_data="start_btn")]]
+        about_text = script.ABOUT_TXT.format(
+            double_struck("𝗔𝗕𝗢𝗨𝗧 𝗦𝗬𝗦𝗧𝗘𝗠"),
+            small_caps("Bot Name:") + " <a href=http://t.me/THEUPDATEDGUYS_Bot>Save Content Pro</a>",
+            small_caps("Developer:") + " <a href=https://t.me/DmOwner>Ⓜ️ark X cantarella × Flexyy</a>",
+            small_caps("Library:") + " <a href='https://docs.pyrogram.org/'>Pyrogram Async</a>",
+            small_caps("Language:") + " <a href='https://www.python.org/'>Python 3.11+</a>",
+            small_caps("Database:") + " <a href='https://www.mongodb.com/'>MongoDB Atlas</a>",
+            small_caps("Hosting:") + " Dedicated High-Speed VPS",
+            small_caps("Powered by DragonByte Network")
+        )
         await client.edit_message_caption(
             chat_id=message.chat.id,
             message_id=message.id,
-            caption=script.ABOUT_TXT,
+            caption=about_text,
             reply_markup=InlineKeyboardMarkup(buttons),
             parse_mode=enums.ParseMode.HTML
         )
@@ -884,9 +913,14 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
         ]
        
         start_text = script.START_TXT.format(
-            callback_query.from_user.mention,
-            bot.username,
-            bot.first_name
+            double_struck("𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗥𝗘𝗦𝗧𝗥𝗜𝗖𝗧𝗘𝗗 𝗦𝗔𝗩𝗘𝗥"),
+            small_caps(f"Hello {callback_query.from_user.mention}, I'm").replace(callback_query.from_user.mention, "{}") + f" <a href=https://t.me/{bot.username}>{bot.first_name}</a>",
+            italic_style("Your Ultimate Restricted Content Saver Bot"),
+            small_caps("System Status: 🟢 Online"),
+            small_caps("Performance: 10x High-Speed"),
+            small_caps("Security: End-to-End"),
+            small_caps("Uptime: 99.9% Guaranteed"),
+            small_caps("Select Option Below to Get Started")
         )
        
         await client.edit_message_media(
