@@ -270,20 +270,20 @@ class script(object):
     small_caps("Month Plan"),
     small_caps("Lifetime Access"),
     small_caps("Secure Payment"),
-    UPI_ID,
-    QR_CODE,
+    "{}",  # UPI_ID placeholder
+    "{}",  # QR_CODE placeholder
     small_caps("Scan to Pay"),
     italic_style("After Payment: Send Screenshot to @DmOwner for Instant Activation!")
 )
 
-    # 🔥 PROGRESS BAR - ULTRA COOL
+    # 🔥 PROGRESS BAR - FIXED VERSION
     PROGRESS_BAR = """
 <b>{}</b>
 <blockquote>
 ┌─────────────────────┐
-│ <b>📊 {}:</b> {bar} {percentage:.1f}%  │
+│ <b>📊 {}:</b> {percentage:.1f}%  │
 │ <b>🚀 {}:</b> <code>{speed}/s</code>       │
-│ <b>💾 {}:</b> <code>{current} {total}</code>  │
+│ <b>💾 {}:</b> <code>{current} of {total}</code>  │
 │ <b>⏱ {}:</b> <code>{elapsed}</code>      │
 │ <b>⏳ {}:</b> <code>{eta}</code>         │
 └─────────────────────┘
@@ -293,7 +293,6 @@ class script(object):
     small_caps("Progress"),
     small_caps("Speed"),
     small_caps("Size"),
-    small_caps("of"),
     small_caps("Elapsed"),
     small_caps("ETA")
 )
@@ -458,11 +457,8 @@ def progress(current, total, message, type):
             eta = (total - current) / speed if speed > 0 else 0
             elapsed = now - progress.start_time[task_id]
            
-            filled_length = int(percentage / 5)
-            bar = '█' * filled_length + ' ' * (20 - filled_length)
-           
+            # FIXED: Removed {bar} from format string
             status = script.PROGRESS_BAR.format(
-                bar=bar,
                 percentage=percentage,
                 current=humanbytes(current),
                 total=humanbytes(total),
@@ -479,7 +475,8 @@ def progress(current, total, message, type):
             if current == total:
                 progress.start_time.pop(task_id, None)
                 progress.cache.pop(task_id, None)
-        except:
+        except Exception as e:
+            logger.error(f"Progress error: {e}")
             pass
 
 @Client.on_message(filters.command(["start"]))
@@ -650,9 +647,11 @@ async def save(client: Client, message: Message):
                 batch_temp.IS_BATCH[message.from_user.id] = True
                 return
            
+            # FIXED: Added unique session name to avoid "Client is already connected" error
+            session_name = f"session_{message.from_user.id}_{int(time.time())}"
             try:
                 acc = Client(
-                    "saverestricted",
+                    session_name,
                     session_string=user_data,
                     api_hash=API_HASH,
                     api_id=API_ID,
@@ -673,6 +672,12 @@ async def save(client: Client, message: Message):
             else:
                 username = datas[3]
                 await handle_restricted_content(client, acc, message, username, msgid)
+           
+            # FIXED: Disconnect after use
+            try:
+                await acc.disconnect()
+            except:
+                pass
            
             await asyncio.sleep(2)
        
