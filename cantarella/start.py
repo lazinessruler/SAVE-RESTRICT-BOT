@@ -1,5 +1,5 @@
 # Developed by: LastPerson07 × cantarella
-# Modified by: Flexyy Joren
+# Modified by: Flexyy Joren 🔥
 # Telegram: @xFlexyy | @DragonByte_Network
 
 import os
@@ -29,21 +29,19 @@ FREE_LIMIT_DAILY = 10
 UPI_ID = os.environ.get("UPI_ID", "your_upi@oksbi")
 QR_CODE = os.environ.get("QR_CODE", "https://graph.org/file/242b7f1b52743938d81f1.jpg")
 
-# Premium Images - Aapki Di Hui List
-PREMIUM_IMAGES = [
-    "https://i.postimg.cc/JnY5fHyX/026736497b6d047c910a0da13bd23e7b.jpg",
-    "https://i.postimg.cc/rmZNBRdt/23c874004ccca79fdd3fbcb260a80829.jpg",
-    "https://i.postimg.cc/LXQ3cgqY/2412165f7ca24a6422b4bdb96d169e98.jpg",
-    "https://i.postimg.cc/xCp3wNkx/3511407df15923bbc85720e712cec44e.jpg",
-    "https://i.postimg.cc/DZpP94WP/45b4da77420ccfff9ab8196944c8cf26.jpg",
-    "https://i.postimg.cc/gJtHCLwV/57e045c8b5bba2adfa522f15d6bd9094.jpg",
-    "https://i.postimg.cc/hjt0Z1GV/72702cbdbf3bf0ceeac3ef6d7f0c118b.jpg",
-    "https://i.postimg.cc/zB2FsHLk/7926a8d03b5c9094761a7ca17202e356.jpg",
-    "https://i.postimg.cc/85Xm2fFY/82c3c50baee7980a9ae08c017bb669e6.jpg",
-    "https://i.postimg.cc/85Xm2fFB/b16da8b99a83d33ad649c48210b4f42d.jpg",
-    "https://i.postimg.cc/vB2tJx13/ba221a265c809c0ce3f3a83a2735d2bc.jpg",
-    "https://i.postimg.cc/fLqfGS39/dbffd4c10a7db8b310f760bc4f5d5427.jpg",
-    "https://i.postimg.cc/xCp3wNk6/e8b74238880bd9d67ec728cff79415e0.jpg"
+# ==================== 🔥 ULTRA PREMIUM IMAGES ====================
+START_IMAGES = [
+    "https://i.postimg.cc/Hx1qXv0f/0f22a4ab4d44a829a33797eb7d8fbdc6.jpg",
+    "https://i.postimg.cc/j5YpP3Qb/22df44ff326cbce5d99344d904e993af.jpg",
+    "https://i.postimg.cc/26Nsh9dg/2b8ed2a65ecec6caa3c442cd08cffd27.jpg",
+    "https://i.postimg.cc/Kzh6Bprz/6274337955fefbe4c95d4712714597e4.jpg",
+    "https://i.postimg.cc/SsLwrLDN/9a8fe855f0dc641cf81aae32d9f0e9bb.jpg",
+    "https://i.postimg.cc/vB7pz73Z/a08029e31cd662dcb778a917b09deee4.jpg",
+    "https://i.postimg.cc/ydhwPhvz/a85d30361837800fd31935ec137863bf.jpg",
+    "https://i.postimg.cc/LsPdqFPW/b6e808ff4ded204ba2abadedaeeef2b2.jpg",
+    "https://i.postimg.cc/vBwJf2Ly/bd7b083aebb810f4ffba2d60ee98053a.jpg",
+    "https://i.postimg.cc/W3mQnmXc/cfbf4a2ce731632aa88dd87456844586.jpg",
+    "https://i.postimg.cc/85dqHdtS/f4895703153ffd7f73fa8024eada8287.jpg"
 ]
 
 REACTIONS = [
@@ -57,8 +55,9 @@ REACTIONS = [
     "😡"
 ]
 
+# ==================== 🔥 ULTRA COOL FONTS ====================
 def small_caps(text: str) -> str:
-    """Convert text to small caps unicode (premium font)"""
+    """Convert to small caps - Premium Font Style 1"""
     normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     small = "ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ"
     result = ""
@@ -70,124 +69,315 @@ def small_caps(text: str) -> str:
             result += char
     return result
 
-def get_random_premium_image() -> str:
-    """Return a random premium image from the list"""
-    return random.choice(PREMIUM_IMAGES)
+def bold_style(text: str) -> str:
+    """Convert to bold unicode - Premium Font Style 2"""
+    normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    bold = "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵"
+    result = ""
+    for char in text:
+        if char in normal:
+            idx = normal.index(char)
+            result += bold[idx]
+        else:
+            result += char
+    return result
 
+def italic_style(text: str) -> str:
+    """Convert to italic unicode - Premium Font Style 3"""
+    normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    italic = "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡"
+    result = ""
+    for char in text:
+        if char in normal:
+            idx = normal.index(char)
+            result += italic[idx]
+        else:
+            result += char
+    return result
+
+def double_struck(text: str) -> str:
+    """Convert to double struck - Premium Font Style 4"""
+    normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    double = "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"
+    result = ""
+    for char in text:
+        if char in normal:
+            idx = normal.index(char)
+            result += double[idx]
+        else:
+            result += char
+    return result
+
+def get_random_premium_image() -> str:
+    """Return random premium image"""
+    return random.choice(START_IMAGES)
+
+# ==================== 🔥 ULTRA COOL TEXT CLASS ====================
 class script(object):
    
-    # FIXED: Properly formatted with correct placeholders
-    START_TXT = """<b>✨ Welcome to Restricted Saver Bot! ✨</b>
+    # 🔥 START MENU - ULTRA COOL
+    START_TXT = """
+<b>{}</b>
 
-<b>Hello {}, I'm <a href=https://t.me/{}>{}</a></b>
-<i>Your Professional Restricted Content Saver Bot</i>
+<b>✨ {} ✨</b>
+<i>{}</i>
 
-<blockquote><b>🚀 System Status: 🟢 Online</b>
-<b>⚡ Performance: 10x High-Speed Processing</b>
-<b>🔐 Security: End-to-End Encrypted</b>
-<b>📊 Uptime: 99.9% Guaranteed</b></blockquote>
-
-<b>👇 Select an Option Below to Get Started:</b>
-"""
-
-    HELP_TXT = """<b>📚 Comprehensive Help & User Guide</b>
-
-<blockquote><b>1️⃣ Public Channels (No Login Required)</b></blockquote>
-• Forward or send the post link directly
-• Compatible with any public channel or group
-• <i>Example Link:</i> <code>https://t.me/channel/123</code>
-
-<blockquote><b>2️⃣ Private/Restricted Channels (Login Required)</b></blockquote>
-• Use <code>/login</code> to securely connect your Telegram account
-• Send the private link (e.g., <code>t.me/c/123...</code>)
-• Bot accesses content using your authenticated session
-
-<blockquote><b>3️⃣ Batch Downloading Mode</b></blockquote>
-• Initiate with <code>/batch</code> for multiple files
-• Follow interactive prompts for seamless processing
-
-<blockquote><b>🛑 Free User Limitations:</b></blockquote>
-• <b>Daily Quota:</b> 10 Files / 24 Hours
-• <b>File Size Cap:</b> 2GB Maximum
-
-<blockquote><b>💎 Premium Membership Benefits:</b></blockquote>
-• Unlimited Downloads & No Restrictions
-• Priority Support & Advanced Features
-"""
-
-    ABOUT_TXT = """<b>ℹ️ About This Bot</b>
-
-<blockquote><b>╭────[ 🧩 Technical Stack ]────⍟</b>
-<b>├⍟ 🤖 Bot Name : <a href=http://t.me/THEUPDATEDGUYS_Bot>Save Content</a></b>
-<b>├⍟ 👨‍💻 Developer : <a href=https://t.me/DmOwner>Ⓜ️ark X cantarella × Flexyy</a></b>
-<b>├⍟ 📚 Library : <a href='https://docs.pyrogram.org/'>Pyrogram Async</a></b>
-<b>├⍟ 🐍 Language : <a href='https://www.python.org/'>Python 3.11+</a></b>
-<b>├⍟ 🗄 Database : <a href='https://www.mongodb.com/'>MongoDB Atlas Cluster</a></b>
-<b>├⍟ 📡 Hosting : Dedicated High-Speed VPS</b>
-<b>╰───────────────⍟</b></blockquote>
-"""
-
-    PREMIUM_TEXT = """<b>💎 Premium Membership Plans</b>
-<b>Unlock Unlimited Access & Advanced Features!</b>
-
-<blockquote><b>✨ Key Benefits:</b>
-<b>♾️ Unlimited Daily Downloads</b>
-<b>📂 Support for 4GB+ File Sizes</b>
-<b>⚡ Instant Processing (Zero Delay)</b>
-<b>🖼 Customizable Thumbnails</b>
-<b>📝 Personalized Captions</b>
-<b>🛂 24/7 Priority Support</b></blockquote>
-
-<blockquote><b>💳 Pricing Options:</b></blockquote>
-• <b>1 Month Plan:</b> ₹50 / $1 (Billed Monthly)
-• <b>3 Month Plan:</b> ₹120 / $2.5 (Save 20%)
-• <b>Lifetime Access:</b> ₹200 / $4 (One-Time Payment)
-
-<blockquote><b>👇 Secure Payment:</b></blockquote>
-<b>💸 UPI ID:</b> <code>{}</code>
-<b>📸 QR Code:</b> <a href='{}'>Scan to Pay</a>
-
-<i>After Payment: Send Screenshot to Admin for Instant Activation.</i>
-"""
-
-    PROGRESS_BAR = """<b>⚡ Processing Task...</b>
 <blockquote>
-<b>Progress:</b> {bar} {percentage:.1f}%
-<b>🚀 Speed:</b> <code>{speed}/s</code>
-<b>💾 Size:</b> <code>{current} of {total}</code>
-<b>⏱ Elapsed:</b> <code>{elapsed}</code>
-<b>⏳ ETA:</b> <code>{eta}</code>
+┏━━━━━━━━━━━━━━━━━━━┓
+┃ <b>🚀 {}</b>     ┃
+┃ <b>⚡ {}</b>  ┃
+┃ <b>🔐 {}</b>      ┃
+┃ <b>📊 {}</b>      ┃
+┗━━━━━━━━━━━━━━━━━━━┛
 </blockquote>
-"""
 
-    CAPTION = """<b><a href="https://t.me/THEUPDATEDGUYS">⚡ Powered by THE UPDATED GUYS</a></b>\n\n<b>⚜️ Powered By : <a href="https://t.me/THEUPDATEDGUYS">THE UPDATED GUYS 😎</a></b>"""
+<b>🔥 {} 🔥</b>
+""".format(
+    double_struck("𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗥𝗘𝗦𝗧𝗥𝗜𝗖𝗧𝗘𝗗 𝗦𝗔𝗩𝗘𝗥"),
+    small_caps("Hello {}, I'm").format("{}") + " <a href=https://t.me/{}>{}</a>".format("{}", "{}"),
+    italic_style("Your Ultimate Restricted Content Saver Bot"),
+    small_caps("System Status: 🟢 Online"),
+    small_caps("Performance: 10x High-Speed"),
+    small_caps("Security: End-to-End"),
+    small_caps("Uptime: 99.9% Guaranteed"),
+    small_caps("Select Option Below to Get Started")
+)
 
-    LIMIT_REACHED = """<b>🚫 Daily Limit Exceeded</b>
-<b>Your 10 free saves for today have been used.</b>
-<i>Quota resets automatically after 24 hours from first download.</i>
+    # 🔥 HELP MENU - ULTRA COOL
+    HELP_TXT = """
+<b>{}</b>
 
-<blockquote><b>🔓 Upgrade to Premium for Unlimited Access!</b></blockquote>
-Remove all restrictions and enjoy seamless downloading.
-"""
+<blockquote><b>╔════════════════════╗</b>
+<b>║  {}  ║</b>
+<b>╚════════════════════╝</b></blockquote>
 
-    SIZE_LIMIT = """<b>⚠️ File Size Exceeded</b>
-<b>Free tier limited to 2GB per file.</b>
+<blockquote><b>🔰 {} 🔰</b>
+• {}
+• {}
+• <i>{}</i> <code>https://t.me/channel/123</code></blockquote>
 
-<blockquote><b>🔓 Upgrade to Premium</b></blockquote>
-Download files up to 4GB and beyond with no limits!
-"""
+<blockquote><b>🔒 {} 🔒</b>
+• {} <code>/login</code> {}
+• {} <code>t.me/c/123...</code>
+• {}</blockquote>
 
-    LOGIN_REQUIRED = """<b>🔒 Authentication Required</b>
+<blockquote><b>📦 {} 📦</b>
+• {} <code>/batch</code>
+• {}</blockquote>
 
-<blockquote><i>Access to this content requires login.</i>
-<i>This is a private/restricted channel.</i>
-<i>Use /login to securely authorize your account.</i></blockquote>
-"""
+<blockquote><b>⚠️ {} ⚠️</b>
+• <b>{}</b> 10 {}
+• <b>{}</b> 2GB {}</blockquote>
 
-    CANCELLED = """<b>❌ Task Cancelled</b>"""
+<blockquote><b>💎 {} 💎</b>
+• {}
+• {}</blockquote>
+""".format(
+    double_struck("𝗛𝗘𝗟𝗣 𝗗𝗘𝗦𝗞"),
+    small_caps("Comprehensive User Guide"),
+    small_caps("Public Channels"),
+    small_caps("Forward or send post link directly"),
+    small_caps("Compatible with any public channel/group"),
+    small_caps("Example Link:"),
+    small_caps("Private Channels"),
+    small_caps("Use"),
+    small_caps("to securely connect"),
+    small_caps("Send private link (e.g.,"),
+    small_caps("Bot accesses using your session"),
+    small_caps("Batch Mode"),
+    small_caps("Initiate with"),
+    small_caps("for multiple files"),
+    small_caps("Free Limits"),
+    small_caps("Daily Quota:"),
+    small_caps("Files"),
+    small_caps("File Size:"),
+    small_caps("Max"),
+    small_caps("Premium Benefits"),
+    small_caps("Unlimited Downloads • No Restrictions"),
+    small_caps("Priority Support • Advanced Features")
+)
+
+    # 🔥 ABOUT MENU - ULTRA COOL
+    ABOUT_TXT = """
+<b>{}</b>
+
+<blockquote>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ <b>🤖 {}</b> ┃
+┃ <b>👨‍💻 {}</b> ┃
+┃ <b>📚 {}</b> ┃
+┃ <b>🐍 {}</b> ┃
+┃ <b>🗄 {}</b> ┃
+┃ <b>📡 {}</b> ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+</blockquote>
+
+<b>⚡ {} ⚡</b>
+""".format(
+    double_struck("𝗔𝗕𝗢𝗨𝗧 𝗦𝗬𝗦𝗧𝗘𝗠"),
+    small_caps("Bot Name:") + " <a href=http://t.me/THEUPDATEDGUYS_Bot>Save Content Pro</a>",
+    small_caps("Developer:") + " <a href=https://t.me/DmOwner>Ⓜ️ark X cantarella × Flexyy</a>",
+    small_caps("Library:") + " <a href='https://docs.pyrogram.org/'>Pyrogram Async</a>",
+    small_caps("Language:") + " <a href='https://www.python.org/'>Python 3.11+</a>",
+    small_caps("Database:") + " <a href='https://www.mongodb.com/'>MongoDB Atlas</a>",
+    small_caps("Hosting:") + " Dedicated High-Speed VPS",
+    small_caps("Powered by DragonByte Network")
+)
+
+    # 🔥 PREMIUM MENU - ULTRA COOL
+    PREMIUM_TEXT = """
+<b>{}</b>
+<b>{}</b>
+
+<blockquote>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ <b>✨ {}</b> ✨ ┃
+┃ <b>♾️ {}</b> ┃
+┃ <b>📂 {} 4GB+ {}</b> ┃
+┃ <b>⚡ {} {}</b> ┃
+┃ <b>🖼 {}</b> ┃
+┃ <b>📝 {}</b> ┃
+┃ <b>🛂 24/7 {}</b> ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+</blockquote>
+
+<blockquote><b>💳 {} 💳</b></blockquote>
+┌─────────────────────┐
+│ • <b>1 {}:</b> ₹50 / $1      │
+│ • <b>3 {}:</b> ₹120 / $2.5   │
+│ • <b>{}:</b> ₹200 / $4       │
+└─────────────────────┘
+
+<blockquote><b>💸 {} 💸</b></blockquote>
+<b>UPI ID:</b> <code>{}</code>
+<b>QR Code:</b> <a href='{}'>📸 {}</a>
+
+<i>{}</i>
+""".format(
+    double_struck("𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗠𝗘𝗠𝗕𝗘𝗥𝗦𝗛𝗜𝗣"),
+    bold_style("Unlock Unlimited Power! ⚡"),
+    small_caps("Key Benefits"),
+    small_caps("Unlimited Daily Downloads"),
+    small_caps("Support for"),
+    small_caps("File Sizes"),
+    small_caps("Instant Processing"),
+    small_caps("(Zero Delay)"),
+    small_caps("Customizable Thumbnails"),
+    small_caps("Personalized Captions"),
+    small_caps("Priority Support"),
+    small_caps("Pricing Options"),
+    small_caps("Month Plan"),
+    small_caps("Month Plan"),
+    small_caps("Lifetime Access"),
+    small_caps("Secure Payment"),
+    UPI_ID,
+    QR_CODE,
+    small_caps("Scan to Pay"),
+    italic_style("After Payment: Send Screenshot to @DmOwner for Instant Activation!")
+)
+
+    # 🔥 PROGRESS BAR - ULTRA COOL
+    PROGRESS_BAR = """
+<b>{}</b>
+<blockquote>
+┌─────────────────────┐
+│ <b>📊 {}:</b> {bar} {percentage:.1f}%  │
+│ <b>🚀 {}:</b> <code>{speed}/s</code>       │
+│ <b>💾 {}:</b> <code>{current} {total}</code>  │
+│ <b>⏱ {}:</b> <code>{elapsed}</code>      │
+│ <b>⏳ {}:</b> <code>{eta}</code>         │
+└─────────────────────┘
+</blockquote>
+""".format(
+    bold_style("⚡ PROCESSING TASK... ⚡"),
+    small_caps("Progress"),
+    small_caps("Speed"),
+    small_caps("Size"),
+    small_caps("of"),
+    small_caps("Elapsed"),
+    small_caps("ETA")
+)
+
+    # 🔥 CAPTION - ULTRA COOL
+    CAPTION = """
+<b><a href="https://t.me/THEUPDATEDGUYS">{}</a></b>
+
+<b>⚜️ {} ⚜️</b>
+<b><a href="https://t.me/THEUPDATEDGUYS">{}</a></b>
+""".format(
+    double_struck("ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛʜᴇ ᴜᴘᴅᴀᴛᴇᴅ ɢᴜʏs"),
+    small_caps("Powered By"),
+    bold_style("THE UPDATED GUYS 😎")
+)
+
+    # 🔥 ERROR MESSAGES - ULTRA COOL
+    LIMIT_REACHED = """
+<b>{}</b>
+
+┌─────────────────────┐
+│ <b>⚠️ {}</b> │
+│ <i>{}</i> │
+└─────────────────────┘
+
+<blockquote><b>🔓 {}!</b></blockquote>
+<i>{}</i>
+""".format(
+    double_struck("𝗗𝗔𝗜𝗟𝗬 𝗟𝗜𝗠𝗜𝗧 𝗘𝗫𝗖𝗘𝗘𝗗𝗘𝗗"),
+    small_caps("Your 10 free saves for today are used"),
+    small_caps("Quota resets after 24 hours"),
+    small_caps("Upgrade to Premium for Unlimited"),
+    small_caps("Remove restrictions & enjoy seamless downloading")
+)
+
+    SIZE_LIMIT = """
+<b>{}</b>
+
+┌─────────────────────┐
+│ <b>⚠️ {} 2GB {}.</b> │
+└─────────────────────┘
+
+<blockquote><b>🔓 {}</b></blockquote>
+<i>{} 4GB+ {}!</i>
+""".format(
+    double_struck("𝗙𝗜𝗟𝗘 𝗦𝗜𝗭𝗘 𝗘𝗫𝗖𝗘𝗘𝗗𝗘𝗗"),
+    small_caps("Free tier limited to"),
+    small_caps("per file"),
+    small_caps("Upgrade to Premium"),
+    small_caps("Download files up to"),
+    small_caps("with no limits")
+)
+
+    LOGIN_REQUIRED = """
+<b>{}</b>
+
+┌─────────────────────┐
+│ 🔒 <i>{}</i> │
+│ 📌 <i>{}</i> │
+│ 🔑 <i>{} /login</i>    │
+└─────────────────────┘
+""".format(
+    double_struck("𝗔𝗨𝗧𝗛𝗘𝗡𝗧𝗜𝗖𝗔𝗧𝗜𝗢𝗡 𝗥𝗘𝗤𝗨𝗜𝗥𝗘𝗗"),
+    small_caps("Access requires login"),
+    small_caps("This is a private channel"),
+    small_caps("Use")
+)
+
+    CANCELLED = """
+<b>{}</b>
+└────── <b>❌</b> ──────┘
+""".format(double_struck("𝗧𝗔𝗦𝗞 𝗖𝗔𝗡𝗖𝗘𝗟𝗟𝗘𝗗"))
     
-    PROCESSING = """<b>⚠️ A Task is Currently Processing</b>
-<i>Please wait for completion or use /cancel to stop.</i>"""
+    PROCESSING = """
+<b>{}</b>
+┌─────────────────────┐
+│ <i>{}</i> │
+│ <i>{}</i> │
+└─────────────────────┘
+""".format(
+    double_struck("𝗣𝗥𝗢𝗖𝗘𝗦𝗦𝗜𝗡𝗚"),
+    small_caps("A task is currently processing"),
+    small_caps("Please wait or use /cancel to stop")
+)
 
 def humanbytes(size):
     if not size:
@@ -306,23 +496,22 @@ async def send_start(client: Client, message: Message):
    
     buttons = [
         [
-            InlineKeyboardButton("💎 Buy Premium", callback_data="buy_premium"),
-            InlineKeyboardButton("🆘 Help & Guide", callback_data="help_btn")
+            InlineKeyboardButton("💎 𝙋𝙧𝙚𝙢𝙞𝙪𝙢", callback_data="buy_premium"),
+            InlineKeyboardButton("🆘 𝙃𝙚𝙡𝙥", callback_data="help_btn")
         ],
         [
-            InlineKeyboardButton("⚙️ Settings Panel", callback_data="settings_btn"),
-            InlineKeyboardButton("ℹ️ About Bot", callback_data="about_btn")
+            InlineKeyboardButton("⚙️ 𝙎𝙚𝙩𝙩𝙞𝙣𝙜𝙨", callback_data="settings_btn"),
+            InlineKeyboardButton("ℹ️ 𝘼𝙗𝙤𝙪𝙩", callback_data="about_btn")
         ],
         [
-            InlineKeyboardButton('📢 Channels', callback_data="channels_info"),
-            InlineKeyboardButton('👨‍💻 Developers', callback_data="dev_info")
+            InlineKeyboardButton('📢 𝘾𝙝𝙖𝙣𝙣𝙚𝙡𝙨', callback_data="channels_info"),
+            InlineKeyboardButton('👨‍💻 𝘿𝙚𝙫𝙨', callback_data="dev_info")
         ]
     ]
    
     reply_markup = InlineKeyboardMarkup(buttons)
     bot = await client.get_me()
    
-    # FIXED: Properly format with 3 arguments
     start_text = script.START_TXT.format(
         message.from_user.mention,
         bot.username,
@@ -340,7 +529,7 @@ async def send_start(client: Client, message: Message):
 
 @Client.on_message(filters.command(["help"]))
 async def send_help(client: Client, message: Message):
-    buttons = [[InlineKeyboardButton("❌ Close Menu", callback_data="close_btn")]]
+    buttons = [[InlineKeyboardButton("❌ 𝘾𝙡𝙤𝙨𝙚", callback_data="close_btn")]]
     await client.send_message(
         chat_id=message.chat.id,
         text=script.HELP_TXT,
@@ -351,11 +540,10 @@ async def send_help(client: Client, message: Message):
 @Client.on_message(filters.command(["plan", "myplan", "premium"]))
 async def send_plan(client: Client, message: Message):
     buttons = [
-        [InlineKeyboardButton("📸 Send Payment Proof", url="https://t.me/DmOwner")],
-        [InlineKeyboardButton("❌ Close Menu", callback_data="close_btn")]
+        [InlineKeyboardButton("📸 𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙋𝙧𝙤𝙤𝙛", url="https://t.me/DmOwner")],
+        [InlineKeyboardButton("❌ 𝘾𝙡𝙤𝙨𝙚", callback_data="close_btn")]
     ]
    
-    # FIXED: Format with UPI_ID and QR_CODE
     premium_text = script.PREMIUM_TEXT.format(UPI_ID, QR_CODE)
    
     await client.send_photo(
@@ -372,23 +560,30 @@ async def send_cancel(client: Client, message: Message):
     await message.reply_text(script.CANCELLED, parse_mode=enums.ParseMode.HTML)
 
 async def settings_panel(client, callback_query):
-    """
-    Renders the Settings Menu with professional layout.
-    """
+    """Settings Menu - Ultra Cool"""
     user_id = callback_query.from_user.id
     is_premium = await db.check_premium(user_id)
-    badge = "💎 Premium Member" if is_premium else "👤 Standard User"
+    badge = "💎 𝙋𝙧𝙚𝙢𝙞𝙪𝙢" if is_premium else "👤 𝙎𝙩𝙖𝙣𝙙𝙖𝙧𝙙"
    
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("📜 Command List", callback_data="cmd_list_btn")],
-        [InlineKeyboardButton("📊 Usage Stats", callback_data="user_stats_btn")],
-        [InlineKeyboardButton("🗑 Dump Chat Settings", callback_data="dump_chat_btn")],
-        [InlineKeyboardButton("🖼 Manage Thumbnail", callback_data="thumb_btn")],
-        [InlineKeyboardButton("📝 Edit Caption", callback_data="caption_btn")],
-        [InlineKeyboardButton("⬅️ Return to Home", callback_data="start_btn")]
+        [InlineKeyboardButton("📜 𝘾𝙤𝙢𝙢𝙖𝙣𝙙𝙨", callback_data="cmd_list_btn")],
+        [InlineKeyboardButton("📊 𝙐𝙨𝙖𝙜𝙚 𝙎𝙩𝙖𝙩𝙨", callback_data="user_stats_btn")],
+        [InlineKeyboardButton("🗑 𝘿𝙪𝙢𝙥 𝘾𝙝𝙖𝙩", callback_data="dump_chat_btn")],
+        [InlineKeyboardButton("🖼 𝙏𝙝𝙪𝙢𝙗𝙣𝙖𝙞𝙡", callback_data="thumb_btn")],
+        [InlineKeyboardButton("📝 𝘾𝙖𝙥𝙩𝙞𝙤𝙣", callback_data="caption_btn")],
+        [InlineKeyboardButton("⬅️ 𝘽𝙖𝙘𝙠 𝙃𝙤𝙢𝙚", callback_data="start_btn")]
     ])
    
-    text = f"<b>⚙️ Settings Dashboard</b>\n\n<b>Account Status:</b> {badge}\n<b>User ID:</b> <code>{user_id}</code>\n\n<i>Customize and manage your bot preferences below for an optimized experience:</i>"
+    text = f"""
+<b>{double_struck("𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 𝗗𝗔𝗦𝗛𝗕𝗢𝗔𝗥𝗗")}</b>
+
+┌─────────────────────┐
+│ <b>{small_caps('Account:')}</b> {badge}    │
+│ <b>{small_caps('User ID:')}</b> <code>{user_id}</code> │
+└─────────────────────┘
+
+<i>{italic_style('Customize your experience below')}</i>
+"""
    
     await callback_query.edit_message_caption(
         caption=text,
@@ -402,7 +597,7 @@ async def save(client: Client, message: Message):
        
         is_limit_reached = await db.check_limit(message.from_user.id)
         if is_limit_reached:
-            btn = InlineKeyboardMarkup([[InlineKeyboardButton("💎 Upgrade to Premium", callback_data="buy_premium")]])
+            btn = InlineKeyboardMarkup([[InlineKeyboardButton("💎 𝙐𝙥𝙜𝙧𝙖𝙙𝙚 𝙋𝙧𝙚𝙢𝙞𝙪𝙢", callback_data="buy_premium")]])
             return await message.reply_photo(
                 photo=SUBSCRIPTION,
                 caption=script.LIMIT_REACHED,
@@ -504,7 +699,7 @@ async def handle_restricted_content(client: Client, acc, message: Message, chat_
    
     if file_size > FREE_LIMIT_SIZE:
         if not await db.check_premium(message.from_user.id):
-            btn = InlineKeyboardMarkup([[InlineKeyboardButton("💎 Upgrade to Premium", callback_data="buy_premium")]])
+            btn = InlineKeyboardMarkup([[InlineKeyboardButton("💎 𝙐𝙥𝙜𝙧𝙖𝙙𝙚 𝙋𝙧𝙚𝙢𝙞𝙪𝙢", callback_data="buy_premium")]])
             await client.send_message(
                 message.chat.id,
                 script.SIZE_LIMIT,
@@ -521,7 +716,7 @@ async def handle_restricted_content(client: Client, acc, message: Message, chat_
             return
    
     await db.add_traffic(message.from_user.id)
-    smsg = await client.send_message(message.chat.id, f"<b>⬇️ Starting Download...</b>", reply_to_message_id=message.id, parse_mode=enums.ParseMode.HTML)
+    smsg = await client.send_message(message.chat.id, f"<b>⬇️ {small_caps('Starting Download...')}</b>", reply_to_message_id=message.id, parse_mode=enums.ParseMode.HTML)
    
     temp_dir = f"downloads/{message.id}"
     if not os.path.exists(temp_dir): os.makedirs(temp_dir)
@@ -597,13 +792,29 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
    
     if data == "dev_info":
         await callback_query.answer(
-            text=f"👨‍💻 Mind Behind This Bot:\n• @DmOwner\n• @akaza7902\n• @xFlexyy",
+            text=f"""👨‍💻 {bold_style('DEVELOPER TEAM')} 👨‍💻
+
+╔══════════════════╗
+║ • @DmOwner       ║
+║ • @akaza7902     ║
+║ • @xFlexyy       ║
+╚══════════════════╝
+
+{italic_style('Powered by DragonByte Network')}""",
             show_alert=True
         )
    
     elif data == "channels_info":
         await callback_query.answer(
-            text=f"📢 Official Channels:\n• @ReX_update\n• @THEUPDATEDGUYS\n• @DragonByte_Network\n\nStay updated for new features!",
+            text=f"""📢 {bold_style('OFFICIAL CHANNELS')} 📢
+
+╔══════════════════╗
+║ • @ReX_update    ║
+║ • @THEUPDATEDGUYS║
+║ • @DragonByte_Network ║
+╚══════════════════╝
+
+{italic_style('Stay updated for new features!')}""",
             show_alert=True
         )
    
@@ -612,8 +823,8 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
    
     elif data == "buy_premium":
         buttons = [
-            [InlineKeyboardButton("📸 Send Payment Proof", url="https://t.me/DmOwner")],
-            [InlineKeyboardButton("⬅️ Back to Home", callback_data="start_btn")]
+            [InlineKeyboardButton("📸 𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙋𝙧𝙤𝙤𝙛", url="https://t.me/DmOwner")],
+            [InlineKeyboardButton("⬅️ 𝘽𝙖𝙘𝙠 𝙃𝙤𝙢𝙚", callback_data="start_btn")]
         ]
        
         premium_text = script.PREMIUM_TEXT.format(UPI_ID, QR_CODE)
@@ -629,7 +840,7 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
         )
    
     elif data == "help_btn":
-        buttons = [[InlineKeyboardButton("⬅️ Back to Home", callback_data="start_btn")]]
+        buttons = [[InlineKeyboardButton("⬅️ 𝘽𝙖𝙘𝙠 𝙃𝙤𝙢𝙚", callback_data="start_btn")]]
         await client.edit_message_caption(
             chat_id=message.chat.id,
             message_id=message.id,
@@ -639,7 +850,7 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
         )
    
     elif data == "about_btn":
-        buttons = [[InlineKeyboardButton("⬅️ Back to Home", callback_data="start_btn")]]
+        buttons = [[InlineKeyboardButton("⬅️ 𝘽𝙖𝙘𝙠 𝙃𝙤𝙢𝙚", callback_data="start_btn")]]
         await client.edit_message_caption(
             chat_id=message.chat.id,
             message_id=message.id,
@@ -654,16 +865,16 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
        
         buttons = [
             [
-                InlineKeyboardButton("💎 Buy Premium", callback_data="buy_premium"),
-                InlineKeyboardButton("🆘 Help & Guide", callback_data="help_btn")
+                InlineKeyboardButton("💎 𝙋𝙧𝙚𝙢𝙞𝙪𝙢", callback_data="buy_premium"),
+                InlineKeyboardButton("🆘 𝙃𝙚𝙡𝙥", callback_data="help_btn")
             ],
             [
-                InlineKeyboardButton("⚙️ Settings Panel", callback_data="settings_btn"),
-                InlineKeyboardButton("ℹ️ About Bot", callback_data="about_btn")
+                InlineKeyboardButton("⚙️ 𝙎𝙚𝙩𝙩𝙞𝙣𝙜𝙨", callback_data="settings_btn"),
+                InlineKeyboardButton("ℹ️ 𝘼𝙗𝙤𝙪𝙩", callback_data="about_btn")
             ],
             [
-                InlineKeyboardButton('📢 Channels', callback_data="channels_info"),
-                InlineKeyboardButton('👨‍💻 Developers', callback_data="dev_info")
+                InlineKeyboardButton('📢 𝘾𝙝𝙖𝙣𝙣𝙚𝙡𝙨', callback_data="channels_info"),
+                InlineKeyboardButton('👨‍💻 𝘿𝙚𝙫𝙨', callback_data="dev_info")
             ]
         ]
        
@@ -687,6 +898,6 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
         await message.delete()
    
     elif data in ["cmd_list_btn", "user_stats_btn", "dump_chat_btn", "thumb_btn", "caption_btn"]:
-        await callback_query.answer("🔄 Coming Soon!", show_alert=True)
+        await callback_query.answer("🔄 𝘾𝙤𝙢𝙞𝙣𝙜 𝙎𝙤𝙤𝙣! 🔥", show_alert=True)
    
     await callback_query.answer()
