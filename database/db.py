@@ -11,8 +11,8 @@ class Database:
         self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
         self.db = self._client[database_name]
         self.col = self.db.users
-        self.settings = self.db.settings  # New collection for bot settings
-        self.urls = self.db.urls  # New collection for uptime URLs
+        self.settings = self.db.settings
+        self.urls = self.db.urls
    
     def new_user(self, id, name):
         return dict(
@@ -21,9 +21,9 @@ class Database:
             session = None,
             daily_usage = 0,
             limit_reset_time = None,
-            total_usage = 0,  # New: Total lifetime usage
-            joined_date = datetime.datetime.now(),  # New: Join date
-            thumbnail = None,  # Already there but ensuring
+            total_usage = 0,
+            joined_date = datetime.datetime.now(),
+            thumbnail = None,
             caption = None,
             is_premium = False,
             premium_expiry = None,
@@ -88,9 +88,26 @@ class Database:
     async def del_thumbnail(self, id):
         await self.col.update_one({'id': int(id)}, {'$unset': {'thumbnail': ""}})
    
-    # ==================== PREMIUM FUNCTIONS ====================
+    # ==================== PREMIUM FUNCTIONS - FIXED ====================
    
     async def add_premium(self, id, expiry_date):
+        """Add premium to user - expiry_date must be datetime object"""
+        # Ensure expiry_date is datetime
+        if not isinstance(expiry_date, datetime.datetime):
+            if isinstance(expiry_date, str):
+                try:
+                    # Try ISO format
+                    expiry_date = datetime.datetime.fromisoformat(expiry_date.replace('Z', '+00:00'))
+                except:
+                    try:
+                        # Try common format
+                        expiry_date = datetime.datetime.strptime(expiry_date, "%Y-%m-%d %H:%M:%S")
+                    except:
+                        # Default to 30 days from now
+                        expiry_date = datetime.datetime.now() + datetime.timedelta(days=30)
+            else:
+                expiry_date = datetime.datetime.now() + datetime.timedelta(days=30)
+        
         await self.col.update_one({'id': int(id)}, {
             '$set': {
                 'is_premium': True,
@@ -102,6 +119,7 @@ class Database:
         logger.info(f"💎 User {id} granted premium until {expiry_date}")
    
     async def remove_premium(self, id):
+        """Remove premium from user"""
         await self.col.update_one({'id': int(id)}, {
             '$set': {
                 'is_premium': False,
@@ -111,19 +129,46 @@ class Database:
         logger.info(f"💎 User {id} removed from premium")
    
     async def check_premium(self, id):
+        """Check if user has active premium - FIXED"""
         user = await self.col.find_one({'id': int(id)})
-        if user and user.get('is_premium'):
-            expiry = user.get('premium_expiry')
-            if expiry and expiry > datetime.datetime.now():
-                return True
-            else:
-                # Expired - remove premium
+        if not user:
+            return False
+        
+        if not user.get('is_premium'):
+            return False
+        
+        expiry = user.get('premium_expiry')
+        if not expiry:
+            return False
+        
+        # FIX: Convert string to datetime if needed
+        now = datetime.datetime.now()
+        
+        if isinstance(expiry, str):
+            try:
+                # Try to parse the string
+                if 'T' in expiry:
+                    expiry = datetime.datetime.fromisoformat(expiry.replace('Z', '+00:00'))
+                else:
+                    expiry = datetime.datetime.strptime(expiry, "%Y-%m-%d %H:%M:%S")
+            except Exception as e:
+                logger.error(f"Error parsing expiry date: {e}")
+                # If can't parse, assume expired
                 await self.remove_premium(id)
                 return False
-        return False
+        
+        # Now compare
+        if expiry > now:
+            return True
+        else:
+            # Expired
+            await self.remove_premium(id)
+            return False
    
     async def get_premium_users(self):
-        return self.col.find({'is_premium': True})
+        """Get all premium users"""
+        cursor = self.col.find({'is_premium': True})
+        return await cursor.to_list(length=None)
    
     # ==================== BAN FUNCTIONS ====================
    
@@ -142,7 +187,7 @@ class Database:
     # ==================== DUMP CHAT FUNCTIONS ====================
    
     async def set_dump_chat(self, id, chat_id):
-        await self.col.update_one({'id': int(id)}, {'$set': {'dump_chat': int(chat_id)}})
+        await self.col.update_one({'id': int(id)}, {'$set': {'dump_chat': int(chat_id) if chat_id else None}})
    
     async def get_dump_chat(self, id):
         user = await self.col.find_one({'id': int(id)})
@@ -184,15 +229,12 @@ class Database:
     # ==================== DAILY LIMIT FUNCTIONS ====================
    
     async def check_limit(self, id):
-        """
-        Checks if a user has hit their daily limit.
-        Returns: True if BLOCKED (limit reached), False if ALLOWED.
-        """
+        """Check if user has hit daily limit"""
         user = await self.col.find_one({'id': int(id)})
         if not user:
             return False
        
-        # Premium Check: Always allowed
+        # Premium Check
         if await self.check_premium(id):
             return False
        
@@ -200,7 +242,6 @@ class Database:
         now = datetime.datetime.now()
         reset_time = user.get('limit_reset_time')
        
-        # If reset time has passed or was never set, reset count to 0
         if reset_time is None or now >= reset_time:
             await self.col.update_one(
                 {'id': int(id)},
@@ -216,29 +257,24 @@ class Database:
         return False
    
     async def add_traffic(self, id):
-        """
-        Increments usage count.
-        If it's the first save of the cycle, sets the 24h timer.
-        Also increments total usage.
-        """
+        """Increment usage count"""
         user = await self.col.find_one({'id': int(id)})
         if not user:
             return
        
-        # Increment total usage always
+        # Increment total usage
         await self.col.update_one(
             {'id': int(id)},
             {'$inc': {'total_usage': 1}}
         )
        
-        # If premium, don't track daily limit
+        # If premium, don't track daily
         if await self.check_premium(id):
             return
        
         now = datetime.datetime.now()
         reset_time = user.get('limit_reset_time')
        
-        # If timer is not running, start it for 24 hours from NOW
         if reset_time is None:
             new_reset_time = now + datetime.timedelta(hours=24)
             await self.col.update_one(
@@ -246,14 +282,13 @@ class Database:
                 {'$set': {'daily_usage': 1, 'limit_reset_time': new_reset_time}}
             )
         else:
-            # Just increment
             await self.col.update_one(
                 {'id': int(id)},
                 {'$inc': {'daily_usage': 1}}
             )
    
     async def get_user_stats(self, id):
-        """Get user statistics for display"""
+        """Get user statistics"""
         user = await self.col.find_one({'id': int(id)})
         if not user:
             return None
@@ -269,10 +304,9 @@ class Database:
             'has_caption': bool(user.get('caption'))
         }
    
-    # ==================== RENDER URL FUNCTIONS FOR UPTIME ====================
+    # ==================== RENDER URL FUNCTIONS ====================
    
     async def add_url(self, url: str, name: str = None) -> bool:
-        """Add a new URL to ping list"""
         try:
             if not name:
                 name = url.replace("https://", "").replace("http://", "").split(".")[0]
@@ -292,93 +326,30 @@ class Database:
                 },
                 upsert=True
             )
-            logger.info(f"✅ URL added: {name} - {url}")
             return True
         except Exception as e:
-            logger.error(f"❌ Error adding URL: {e}")
+            logger.error(f"Error adding URL: {e}")
             return False
    
     async def remove_url(self, url: str) -> bool:
-        """Remove a URL from ping list"""
         result = await self.urls.delete_one({"url": url})
-        if result.deleted_count > 0:
-            logger.info(f"🗑️ URL removed: {url}")
-            return True
-        return False
+        return result.deleted_count > 0
    
     async def get_all_urls(self):
-        """Get all URLs from database"""
         cursor = self.urls.find({})
         return await cursor.to_list(length=None)
    
     async def update_url_status(self, url: str, status: int = None, error: str = None):
-        """Update last ping status for URL"""
-        update_data = {
-            "last_ping": datetime.datetime.now()
-        }
+        update_data = {"last_ping": datetime.datetime.now()}
         if status:
             update_data["last_status"] = status
-            update_data["last_error"] = None
         if error:
             update_data["last_status"] = "Failed"
             update_data["last_error"] = error
-       
-        await self.urls.update_one(
-            {"url": url},
-            {"$set": update_data}
-        )
-   
-    async def toggle_url(self, url: str, active: bool):
-        """Enable/disable URL ping"""
-        await self.urls.update_one(
-            {"url": url},
-            {"$set": {"active": active}}
-        )
-        logger.info(f"🔄 URL {'enabled' if active else 'disabled'}: {url}")
+        await self.urls.update_one({"url": url}, {"$set": update_data})
    
     async def get_active_urls(self):
-        """Get only active URLs"""
         cursor = self.urls.find({"active": True})
         return await cursor.to_list(length=None)
-   
-    async def get_url_count(self) -> dict:
-        """Get URL statistics"""
-        total = await self.urls.count_documents({})
-        active = await self.urls.count_documents({"active": True})
-        failed = await self.urls.count_documents({"last_status": "Failed"})
-        return {
-            "total": total,
-            "active": active,
-            "failed": failed
-        }
-   
-    # ==================== BOT SETTINGS FUNCTIONS ====================
-   
-    async def set_bot_start_time(self, time: datetime.datetime):
-        """Save bot start time to database"""
-        await self.settings.update_one(
-            {"key": "start_time"},
-            {"$set": {"value": time}},
-            upsert=True
-        )
-   
-    async def get_bot_start_time(self):
-        """Get bot start time from database"""
-        doc = await self.settings.find_one({"key": "start_time"})
-        return doc.get("value") if doc else None
-   
-    async def set_bot_setting(self, key: str, value):
-        """Set any bot setting"""
-        await self.settings.update_one(
-            {"key": key},
-            {"$set": {"value": value}},
-            upsert=True
-        )
-   
-    async def get_bot_setting(self, key: str):
-        """Get any bot setting"""
-        doc = await self.settings.find_one({"key": key})
-        return doc.get("value") if doc else None
 
-# Initialize database
 db = Database(DB_URI, DB_NAME)
