@@ -3,7 +3,7 @@ import os
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 API_ID = int(os.environ.get("API_ID", "0"))
 API_HASH = os.environ.get("API_HASH", "")
-
+OWNER_ID = int(os.environ.get("OWNER_ID", 8587740350))  # Your Telegram User ID
 ADMINS = [8587740350] + [
     int(admin) for admin in os.environ.get("ADMINS", "").split(",") if admin
 ]
